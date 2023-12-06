@@ -1,0 +1,205 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Art/Jump-Man.png" type="Texture" id=1]
+[ext_resource path="res://Art/World_Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/LevelEnd.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 88 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2, 24 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 32 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 96 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Flag_Down"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -152 ), Vector2( -8, -24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flagpole_Stop:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Flag_Down"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -152 ), Vector2( -8, -24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flagpole_Stop:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 0 ]
+}
+
+[node name="LevelEnd" type="Node2D"]
+position = Vector2( 3176, 184 )
+script = ExtResource( 3 )
+
+[node name="Castle" type="TileMap" parent="."]
+position = Vector2( -3176, -192 )
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 47
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65734, 11, 0, 131270, 11, 65536, 196806, 11, 65536, 262342, 11, 65536, 327878, 11, 65536, 327883, 536870924, 65537, 327885, 536870924, 65537, 393414, 11, 65536, 393419, 536870924, 65538, 393420, 536870924, 65537, 393421, 536870924, 65538, 458950, 11, 65536, 458955, 536870924, 2, 458956, 12, 65536, 458957, 12, 2, 524486, 11, 65536, 524490, 12, 65537, 524491, 12, 65538, 524492, 12, 65538, 524493, 12, 65538, 524494, 12, 65537, 590022, 11, 65536, 590025, 12, 65537, 590026, 536870924, 65536, 590027, 5, 0, 590028, 12, 1, 590029, 5, 0, 590030, 5, 0, 590031, 12, 65537, 655558, 11, 65536, 655561, 536870924, 2, 655562, 12, 65536, 655563, 12, 2, 655564, 12, 0, 655565, 536870924, 2, 655566, 12, 65536, 655567, 12, 2, 721094, 536870913, 0, 721097, 5, 0, 721098, 536870924, 65536, 721099, 5, 0, 721100, 12, 0, 721101, 12, 65536, 721102, 5, 0, 721103, 5, 0 )
+
+[node name="Castle_Background" type="TileMap" parent="."]
+position = Vector2( -3176, -192 )
+z_index = -20
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 47
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 393419, 536870924, 65536, 393421, 536870924, 65536, 524491, 5, 0, 524492, 5, 0, 524493, 5, 0 )
+
+[node name="Castle_Foreground" type="TileMap" parent="."]
+position = Vector2( -3176, -192 )
+z_index = 5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 47
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65734, 11, 0, 131270, 11, 65536, 196806, 11, 65536, 262342, 11, 65536, 327878, 11, 65536, 393414, 11, 65536, 458950, 11, 65536, 524486, 11, 65536, 590022, 11, 65536, 590029, 5, 0, 590030, 5, 0, 590031, 12, 65537, 655565, 536870924, 2, 655566, 12, 65536, 655567, 12, 2, 721101, 12, 65536, 721102, 5, 0, 721103, 5, 0 )
+
+[node name="Flag" type="Sprite" parent="."]
+position = Vector2( -8, -152 )
+texture = SubResource( 1 )
+
+[node name="CameraFreeze" type="Area2D" parent="."]
+position = Vector2( 60, 0 )
+collision_layer = 0
+collision_mask = 64
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFreeze"]
+position = Vector2( 0, -88 )
+shape = SubResource( 2 )
+
+[node name="FlagpoleBottom" type="Area2D" parent="."]
+position = Vector2( 0, -40 )
+collision_layer = 0
+collision_mask = 64
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagpoleBottom"]
+shape = SubResource( 3 )
+
+[node name="FlagpoleMiddle" type="Area2D" parent="."]
+position = Vector2( 0, -88 )
+collision_layer = 0
+collision_mask = 64
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagpoleMiddle"]
+shape = SubResource( 3 )
+
+[node name="FlagpoleUpper" type="Area2D" parent="."]
+position = Vector2( 0, -136 )
+collision_layer = 0
+collision_mask = 64
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagpoleUpper"]
+shape = SubResource( 3 )
+
+[node name="FlagpoleTop" type="Area2D" parent="."]
+position = Vector2( 0, -184 )
+collision_layer = 0
+collision_mask = 64
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagpoleTop"]
+shape = SubResource( 3 )
+
+[node name="EndWall" type="StaticBody2D" parent="."]
+position = Vector2( 144, -32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndWall"]
+shape = SubResource( 4 )
+
+[node name="Flagpole_Stop" type="StaticBody2D" parent="."]
+position = Vector2( 16, -112 )
+collision_layer = 7
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flagpole_Stop"]
+shape = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flag_Down = SubResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Flag_Down = SubResource( 7 )
+
+[connection signal="body_entered" from="CameraFreeze" to="." method="_on_CameraFreeze_body_entered"]
+[connection signal="body_entered" from="FlagpoleBottom" to="." method="_on_FlagpoleBottom_body_entered"]
+[connection signal="body_entered" from="FlagpoleMiddle" to="." method="_on_FlagpoleMiddle_body_entered"]
+[connection signal="body_entered" from="FlagpoleUpper" to="." method="_on_FlagpoleUpper_body_entered"]
+[connection signal="body_entered" from="FlagpoleTop" to="." method="_on_FlagpoleTop_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_AnimationPlayer_animation_finished"]

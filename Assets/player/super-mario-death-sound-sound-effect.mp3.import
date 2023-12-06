@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/super-mario-death-sound-sound-effect.mp3-0c224f5e8c440b2964a492f9d9f3d08c.mp3str"
+
+[deps]
+
+source_file="res://Assets/player/super-mario-death-sound-sound-effect.mp3"
+dest_files=[ "res://.import/super-mario-death-sound-sound-effect.mp3-0c224f5e8c440b2964a492f9d9f3d08c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

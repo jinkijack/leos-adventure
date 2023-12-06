@@ -1,0 +1,89 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/player/Jump.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Protagonist.gd" type="Script" id=2]
+[ext_resource path="res://Assets/player/Player Jump2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/player/Player Fall3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/player/Player Jump4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/player/Player Jump1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/player/Player Fall1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/player/Player Fall4.png" type="Texture" id=8]
+[ext_resource path="res://Assets/player/Player Jump3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/player/Player Fall2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/player/Player Walk3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/player/Player Walk4.png" type="Texture" id=12]
+[ext_resource path="res://Assets/player/Player.png" type="Texture" id=13]
+[ext_resource path="res://Assets/player/Player Walk1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/player/Player Walk2.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 8 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "jump",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3, 2 )
+
+[node name="Protagonist" type="KinematicBody2D" groups=["Player"]]
+collision_layer = 71
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+speed = 150
+run_speed = 210
+jump_speed = 260
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+animation = "idle"
+playing = true
+
+[node name="I_Died" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="I_Died"]
+position = Vector2( 0, -2 )
+shape = SubResource( 6 )
+
+[node name="My_feet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="My_feet"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )
+
+[node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="body_entered" from="I_Died" to="." method="_on_I_Died_body_entered"]
+[connection signal="body_entered" from="My_feet" to="." method="_on_My_feet_body_entered"]
